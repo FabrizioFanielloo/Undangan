@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU&display=swap" rel="stylesheet">
+    <title>Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #f0f0f0;
+            color: black;
+            font-family: 'Lato', sans-serif;
+            transition: background-color 0.3s, color 0.3s, font-family 0.3s;
+        }
+
+        .dark-mode {
+            background-color: black;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: black;
+            font-family: 'Playwrite CO';
+        }
+
+        .container {
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            border-radius: 15px;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            background-image: url(https://kreasiundangan.com/wp-content/uploads/background-p-2.jpg);
+        }
+
+        .cover {
+            background-image: url(https://kreasiundangan.com/wp-content/uploads/background-p-2.jpg);
+        }
+
+        .dark-mode .cover {
+            background-image: url(https://kreasiundangan.com/wp-content/uploads/45840bd5e3ef08d9b4a1126a48b80a81.jpg);
+        }
+
+        .dark-mode .page {
+            background-image: url(https://kreasiundangan.com/wp-content/uploads/45840bd5e3ef08d9b4a1126a48b80a81.jpg);
+        }
+
+        .page > div, .page > p, .page > h1, .page > h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Bitter';
+        }
+
+        h1.tle {
+            text-align: center;
+            font-family: 'Playwrite CU';
+            color: rgb(255, 163, 52);
+            font-size: 7vh;
+            margin-bottom: 2rem;
+        }
+
+        h2.tle {
+            text-align: center;
+            font-family: 'Dancing Script';
+            color: rgb(255, 163, 52);
+            font-size: 6vh;
+        }
+
+        .cover .title h1 {
+            font-size: 2rem;
+        }
+
+        .cover .title p {
+            font-size: 1.2rem;
+        }
+
+        .invitation .card {
+            max-width: 300px;
+            height: 60%;
+            background-color: rgba(255, 163, 57, 0.315);
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            border: white 2px solid;
+            animation: glow 2s infinite alternate;
+            box-shadow: white 10px 10px;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: lightgreen;
+            background-image: url(meme.gif);
+            background-size: cover;
+            animation: spin 10s linear infinite;
+            box-shadow: white 0 0 9px;
+        }
+
+        .line {
+            width: 150px;
+            height: 1px;
+            background-color: black;
+            margin: 10px 0;
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+        }
+
+        div.border {
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .genap {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            padding-bottom: 4rem;
+            justify-content: space-evenly;
+            animation: float 2s infinite;
+        }
+
+        h1.person2 {
+            font-family: 'Dancing Script';
+            font-size: 7vh;
+            color: rgb(255, 211, 65);
+        }
+
+        .timer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .timer h3 {
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .counter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+        }
+
+        .counter__box {
+            text-align: center;
+            width: 89px;
+            height: 103px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0.25rem;
+        }
+
+        .counter__time {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .counter__duration {
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dots {
+            font-size: 52px;
+            margin: -0.75rem;
+            padding: 0;
+        }
+
+        .black-white {
+            background: linear-gradient(
+                to top,
+                #ffd4eb 0%,
+                #ffa8f9 50%,
+                #9bd9ff 50%,
+                #ffb0f7 100%
+            );
+        }
+
+        .sky-blue {
+            background: linear-gradient(
+                to top,
+                #ffbbf0 0%,
+                #009edb 50%,
+                rgba(203, 190, 255, 0.95) 50%,
+                rgba(127, 206, 236, 0.95) 100%
+            );
+        }
+
+        .dark-mode .black-white {
+            background: linear-gradient(
+                to top,
+                #ff46a9 0%,
+                #ef2ae2 50%,
+                #5ac0ff 50%,
+                #ff41ec 100%
+            );
+        }
+
+        .dark-mode .sky-blue {
+            background: linear-gradient(
+                to top,
+                #ff67de 0%,
+                #29bbf5 50%,
+                rgba(130, 99, 255, 0.95) 50%,
+                rgba(47, 190, 247, 0.95) 100%
+            );
+        }
+
+        h3.cd {
+            color: black;
+            font-family: 'Bitter';
+        }
+
+        .dark-mode h3.cd {
+            color: white;
+            font-family: 'Bitter';
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 10px;
+            }
+
+            .invitation .card {
+                width: 90%;
+                height: auto;
+            }
+
+            .timer {
+                gap: 0.5rem;
+            }
+
+            .counter__box {
+                width: 60px;
+                height: 70px;
+            }
+
+            .counter__time {
+                font-size: 2rem;
+            }
+
+            .dots {
+                font-size: 32px;
+            }
+        }
+
+        .btn.toggle-dark-mode {
+            border: none;
+            color: #fff;
+            background-color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn.toggle-dark-mode:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .btn.toggle-dark-mode:focus {
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="toggle-dark-mode" class="btn toggle-dark-mode">Dark Mode</button>
+    <div class="container">
+        <!-- Cover Page -->
+        <section class="page cover">
+            <div class="title">
+                <p>The Wedding of</p>
+            </div>
+            <div class="genap">
+                <div class="border">
+                    <img src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-beautiful-circle-border-with-green-and-gold-leaves-png-image_6697106.png" alt="" class="border">
+                </div>
+            </div>
+            <div class="person">
+                <h1 class="tle">Andi & Santi</h1>
+                <p>Sunday, Juli 16, 2024</p>
+            </div>
+            <div class="guest-name">
+                <p>We are waiting for your attendance</p>
+                <p>Albob, BSc.</p>
+            </div>
+        </section>
+
+        <!-- Invitation Page -->
+        <section class="page invitation">
+            <h2 class="tle">The beloved</h2>
+            <h1 class="person2">Andi & Santi</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe sunt dicta quam necessitatibus aliquid. Explicabo consequuntur non voluptates molestias quas optio veritatis natus ab distinctio aspernatur quaerat, tenetur id alias.</p>
+            <div class="card">
+                <div class="circle"></div>
+                <h1>Soepomo, SH.</h1>
+                <div class="line"></div>
+                <p>Mr. Andi</p>
+                <p>&</p>
+                <p>Mrs. Santi</p>
+            </div>
+        </section>
+
+        <!-- Closing Page -->
+        <section class="page closing">
+            <h2>Event countdown</h2>
+            <div class="timer">
+                <h3 class="cd">Wedding countdown:</h3>
+                <div class="counter">
+                    <div class="counter__box black-white">
+                        <p class="counter__time" id="days"></p>
+                        <p class="counter__duration">days</p>
+                    </div>
+                    <div class="counter__box sky-blue">
+                        <p class="counter__time" id="hours"></p>
+                        <p class="counter__duration">hours</p>
+                    </div>
+                    <p class="dots">:</p>
+                    <div class="counter__box sky-blue">
+                        <p class="counter__time" id="minutes"></p>
+                        <p class="counter__duration">minutes</p>
+                    </div>
+                    <p class="dots">:</p>
+                    <div class="counter__box sky-blue">
+                        <p class="counter__time" id="seconds"></p>
+                        <p class="counter__duration">seconds</p>
+                    </div>
+                </div>
+            </div>
+            <p>We really appreciate your coming to our wedding party!</p>
+        </section>
+    </div>
+
+    <script>
+        var countDownDate = new Date("December 12, 2024 22:10:33").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = '00';
+                document.getElementById("hours").innerHTML = '00';
+                document.getElementById("minutes").innerHTML = '00';
+                document.getElementById("seconds").innerHTML = '00';
+            }
+        }, 1000);
+
+        const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
+        toggleDarkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
